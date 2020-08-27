@@ -12,7 +12,7 @@ ENV  REDIS_DIRS="/var/lib/redis /var/run/redis /var/log/redis" \
 RUN  apk update               && \
      apk upgrade              && \
      chmod -v 755 /run.sh init-cluster.sh               && \
-     apk add "redis~=5.0.9" bash expect                 && \
+     apk add "redis~=5.0.7" bash expect                 && \
      sed -i 's/^bind .*/bind 0.0.0.0/'      $REDIS_CONF && \
      sed -i 's/^daemonize .*/daemonize no/' $REDIS_CONF && \
      chown 1000 $REDIS_DIRS
