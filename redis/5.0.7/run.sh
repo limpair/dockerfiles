@@ -86,6 +86,9 @@ then
             sentinelProcess
             test ! -z "$REDIS_PASSWORD" && \
                 echo "sentinel auth-pass $REDIS_CLUSTER_NAME \"$REDIS_PASSWORD\"" >> $senc
+                
+            test ! -z "$REDIS_PASSWORD" && \
+                echo "requirepass \"$REDIS_PASSWORD\"" >> $senc
 
             sed -i "s/REDIS_MASTER_HOST/$REDIS_MASTER_SVC_HOST/" $senc
             sed -i "s/REDIS_MASTER_PORT/$REDIS_MASTER_SVC_PORT/" $senc
