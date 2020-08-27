@@ -48,6 +48,7 @@ then
             # TD
             ;;
         master)
+            echo "masterauth $REDIS_PASSWORD"       >> $conf
             redis-server $conf
             ;;
         slave)
